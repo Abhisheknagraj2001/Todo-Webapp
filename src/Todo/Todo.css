@@ -1,8 +1,8 @@
-  section {
+  /* section {
   width: 100%;
   display: flex;
   justify-content: center;
-}  
+}   */
 * {
   margin: 0;
   padding: 0;
@@ -22,11 +22,12 @@
 
 .header,
 .form,
-.datetime {
-  margin: 0 1rem;
+.date-time {
+  
   min-height: 10vh;
   width: 100%;
 }
+
 
 .header {
   align-items: center;
@@ -45,7 +46,7 @@ section h1 {
 }
 
 .date-time {
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -111,7 +112,7 @@ form button {
 }
 
 span {
-  margin-right: 3.2rem;
+  margin-right: 3rem;
 }
 
 .myUnOrdList {
@@ -156,14 +157,15 @@ form div {
 li span {
   max-width: 20rem;
   color: #1c2833;
+  align-content: center;
 }
 
 .check-btn,
 .delete-btn {
-  font-size: 3rem;
+  font-size: 2.5rem;
   cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 60%;
   margin: 0 2px;
   background-color: #fff;

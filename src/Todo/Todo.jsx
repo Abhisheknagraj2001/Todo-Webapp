@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { IoMdCheckmark } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import "./Todo.css"
@@ -7,6 +7,7 @@ export const Todo = () => {
 
     const [inputValue, setInputValue] = useState("");
     const [task, setTask] = useState([]);
+    const [dateTime,setDateTime]=useState("");  //using this state to maintain date and time consistantly updatting
 
     const handleInputChange = (value) => {
         setInputValue(value);
@@ -29,11 +30,28 @@ export const Todo = () => {
 
 
 
+    //todo date and time
+    
+ useEffect(()=>{          ///using useeffect to avaiod memory leak
+const interval= setInterval(()=>{
+        
+    const now=new Date();   // current date & time
+    const formattedDate=now.toLocaleDateString();   // e.g., 8/26/2025
+    const formattedTime=now.toLocaleTimeString();   // e.g., 11:15:30 AM
+
+    setDateTime(`${formattedDate}-${formattedTime}`);   // Update state with "date - time"
+    },1000 )
+    return ()=> clearInterval(interval);          //  Cleanup function (runs when component unmounts)             
+ }, [])
+   
+
+
 
     return <>
         <section className="todo-container">
             <header>
                 <h1>Todo List</h1>
+                <h2 className="date-time">{dateTime}</h2>
             </header>
             <section className="form">
                 <form onSubmit={handleFormSubmit}>
