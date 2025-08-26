@@ -1,11 +1,11 @@
 import { IoMdCheckmark } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 
-export const TodoList = ({ data, onHandleDeleteTodo }) => {
+export const TodoList = ({ id,data, checked,onHandleDeleteTodo,onHandleCheckedTodo }) => {
   return (
     <li className="todo-item">
-      <span>{data}</span>
-      <button className="check-btn">
+      <span className={checked?"checkList" :"notCheckList"}>{data}</span>
+      <button className="check-btn" onClick={()=>onHandleCheckedTodo(id)}>
         <IoMdCheckmark />
       </button>
       <button
